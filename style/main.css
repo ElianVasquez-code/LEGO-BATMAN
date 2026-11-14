@@ -416,7 +416,7 @@ body.pagina-personajes {
 
 .contenedor-fondo-ciudad {
     background-image: linear-gradient(rgba(2, 23, 84, 0.85), rgba(2, 23, 84, 0.85)), 
-    url("../../Trabajo final/personajes/fotos/ciudad.jpg");
+    url("../personajes/fotos/ciudad.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
