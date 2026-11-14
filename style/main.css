@@ -1,0 +1,1148 @@
+body {
+    background-color: rgb(0, 0, 0);
+    font-family: "apotek", sans-serif;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-family: "apotek", sans-serif;
+    font-weight: 700;
+    padding: 15px 20px;
+    display: inline-block;
+    transition: background 0.3s;
+}
+
+a:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+video {
+    display: block;
+    margin: 30px auto;
+}
+
+.video1, .video2, .video3 {
+    display: block;
+    width: 80%;            
+    max-width: 1200px;      
+    height: auto;          
+    margin: 30px auto;
+    object-fit: contain;   
+}
+
+header {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+}
+
+.headerContainer {
+    width: 100%;
+    max-width: 100%;
+    height: 80px;
+    margin-top: 20px;
+    background: linear-gradient(to bottom, rgba(255, 213, 2, 0.35) 0%, rgba(255, 213, 2, 0.15) 100%);
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 213, 2, 0.2);
+}
+
+.logo img {
+    width: 200px;
+    display: block;
+}
+
+.logo a {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-left: 50px;
+}
+
+.logo a:hover {
+    background-color: transparent;
+}
+
+#check-menu {
+    display: none;
+}
+
+.menu {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.4s ease, visibility 0.4s;
+    z-index: 999; 
+    overflow: hidden;
+}
+
+.menu.is-active {
+    visibility: visible;
+    opacity: 1;
+}
+
+#fondo-menu {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-image 0.4s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px;
+    box-sizing: border-box;
+    flex: 1;
+}
+
+#fondo-menu::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(11,15,25,0.95) 0%, rgba(11,15,25,0.4) 100%);
+    z-index: 1;
+}
+
+.menu-preview-content {
+    position: relative;
+    z-index: 2;
+    max-width: 500px;
+}
+
+.preview-title {
+    font-family: "apotek", sans-serif;
+    font-weight: 700;
+    font-size: clamp(36px, 5vw, 56px);
+    text-transform: uppercase;
+    line-height: 1;
+    margin: 0 0 15px 0;
+    color: #ffd502;
+    letter-spacing: 1px;
+}
+
+.preview-desc {
+    color: white;
+    font-family: "poppins", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+    opacity: 0.9;
+}
+
+.menu-links-container {
+    list-style: none;
+    margin: 0;
+    padding: 80px 30px 40px 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: center;
+    z-index: 2;
+    background-color: #0b0f19;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    flex: 0 0 400px;
+}
+
+.menu a {
+    position: relative;
+    color: #ffd502;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-family: "apotek", sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 18px 22px; 
+    border-radius: 8px;
+    border: 2px solid #232B3D;
+    transition: all 0.25s ease;
+    background-color: #121826;
+    display: block;
+    letter-spacing: 1px;
+}
+
+.menu a:hover,
+.menu a.active {
+    border-color: #ffd502;
+    background-color: #171F30;
+    color: white; 
+    transform: translateX(6px);
+}
+
+.Icono-batman {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.Icono-batman img {
+    max-width: 90px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+    transition: transform 0.3s ease;
+}
+
+.Icono-batman img:hover {
+    transform: scale(1.05);
+}
+
+.hamburger-btn {
+    position: absolute;
+    top: 50px;
+    right: 100px;
+    z-index: 2000;
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+}
+
+.hamburger-btn span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #ffd502;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.hamburger-btn.is-active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger-btn.is-active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-btn.is-active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+.banner-principal {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.banner-principal .img-fondo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.logo-overlay {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 35%;
+    max-width: 450px;
+    min-width: 250px;
+    height: auto;
+    z-index: 10;
+    filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.7)); 
+}
+
+.texto {
+    position: relative;     
+    margin: 40px auto;      
+    width: 80%;             
+    max-width: 800px;       
+    text-align: center;     
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.texto p {
+    color: white;
+    font-family: "poppins", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.texto b {
+    color: white;
+    font-family: "apotek", sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1.6;
+}
+
+.fotopersonajes {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    margin-bottom: 50px;
+}
+
+.fotopersonajes img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.contenedor-fotos {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 90%;
+    max-width: 1400px;
+    margin: 50px auto;
+}
+
+.contenedor-fotos > div {
+    flex: 1;
+}
+
+.contenedor-fotos img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.logos-marca {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    width: 80%;
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 20px;
+}
+
+.logos-marca a {
+    display: block;
+    width: 100%;
+    padding: 0;
+    background: none;
+}
+
+.logos-marca a:hover {
+    background: none;
+}
+
+.logos-marca > div {
+    max-width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logos-marca img {
+    width: 100%;
+    height: auto;
+    display: block;
+    opacity: 0.7;
+    transition: all 0.4s ease;
+}
+
+.logos-marca img:hover {
+    opacity: 1;
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.6));
+}
+
+.logos-juego {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 35px;
+    width: 85%;
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 15px;
+}
+
+.logos-juego > div {
+    max-width: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logos-juego img {
+    width: 100%;
+    height: auto;
+    display: block;
+    opacity: 0.6;
+    filter: grayscale(100%);
+    transition: all 0.35s ease-in-out;
+}
+
+.logos-juego img:hover {
+    opacity: 1;
+    filter: grayscale(0%) brightness(1.3) drop-shadow(0 0 12px rgba(255, 255, 255, 0.8));
+    transform: translateY(-3px);
+}
+
+body.pagina-personajes {
+    background-color: #021754;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+.contenedor-fondo-ciudad {
+    background-image: linear-gradient(rgba(2, 23, 84, 0.85), rgba(2, 23, 84, 0.85)), 
+    url("../../Trabajo final/personajes/fotos/ciudad.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding-top: 15px;
+    padding-bottom: 60px;
+}
+
+.carrusel-container {
+    max-width: 1250px;
+    margin: 20px auto;
+    padding: 0 50px;
+}
+
+.seccion-personajes-slider {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 20px 0;
+}
+
+.card-vertical {
+    flex: 0 0 280px;
+    background-color: #121a30;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-vertical:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.7);
+}
+
+.contenedor-img-vertical {
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+    background-color: #0b101e;
+}
+
+.contenedor-img-vertical img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+}
+
+.card-vertical:hover .contenedor-img-vertical img {
+    transform: scale(1.08);
+}
+
+.info-personaje-vertical {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-grow: 1;
+    background-color: #0d1b3e;
+}
+
+.info-personaje-vertical h2 {
+    color: #ffd502;
+    font-family: "apotek", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    text-transform: uppercase;
+    margin: 0 0 10px 0;
+    letter-spacing: 1px;
+}
+
+.info-personaje-vertical p {
+    color: #e0e0e0;
+    font-family: "poppins", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.titulo {
+    display: inline-block;
+    font-family: "apotek", sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    letter-spacing: 2px;
+    color: #ffd502;
+    background-color: #121a30;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    padding: 14px 28px;
+    margin: 10px auto 5px auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.titulo:hover {
+    background-color: #ffd502;
+    color: #021754;
+    border-color: #ffd502;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 213, 2, 0.3);
+}
+
+.banner-principal-bat-08 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin-bottom: 50px;
+}
+
+.img-bat-08 {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.titulo-about {
+    color: white;
+    font-family: "poppins", sans-serif;
+    font-weight: 700;
+    text-align: center; 
+    font-size: 25px;
+    background-color: #cc1609;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.texto-about {
+    color: white;
+    font-family: "poppins", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.6;
+    position: absolute;
+    top: 180px;   
+    left: 80px;  
+    z-index: 10;
+    max-width: 600px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.65);
+    border-radius: 8px;
+}
+
+.about-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px; 
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.fotos-about {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: #ffffff; 
+    font-family: "apotek", sans-serif;
+}
+
+.fotos-about img {
+    width: 100%;
+    height: 220px; 
+    object-fit: cover;
+    border-radius: 16px; 
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fotos-about img:hover {
+    transform: scale(1.03); 
+}
+
+.fotos-about h3 {
+    font-family: "apotek", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
+.fotos-about p {
+    font-family: "poppins", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    color: #b0b0b0; 
+    line-height: 1.5;
+    margin: 0;
+}
+
+.video4 {
+    width: 100%;                  
+    max-width: 100%;            
+    height: auto;                 
+    display: block;               
+    margin: 10px auto 0 auto;
+}
+
+.video10 {
+    width: 100%;                  
+    max-width: 100%;            
+    height: auto;                 
+    display: block;               
+    margin: 40px auto 0 auto;     
+}
+
+.about-footer-final {
+    background-color: #051336;
+    padding: 40px 60px; 
+    margin-top: 50px;
+}
+
+.about-footer-final .about-container {
+    max-width: 900px; 
+    margin: 0;        
+}
+
+.about-footer-final h1 {
+    color: #ffd502;
+    font-family: "apotek", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.6;
+    text-align: left;
+    margin-bottom: 10px;
+    margin-top: 30px; 
+    letter-spacing: 1px;
+}
+
+.about-footer-final p {
+    color: #ffffff;
+    font-family: "poppins", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.6;
+    opacity: 0.9;
+    text-align: left;
+    max-width: 100%; 
+    margin: 0;
+}
+
+.banner-principal-calle {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin-bottom: 50px;
+}
+
+.img-calle {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.img-humo {
+    position: absolute; 
+    bottom: 0;          
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-position: center;
+    display: block;
+    z-index: 10;        
+}
+
+.img-batman-personaje {
+    position: absolute;
+    top: 0;           
+    width: 95%;       
+    height: auto;
+    z-index: 2;       
+}
+
+.img-robin-01 {
+    position: absolute;
+    bottom: 40%;      
+    left: 5%;         
+    width: 35%;       
+    height: auto;
+    z-index: 2;
+}
+
+.galeria-container {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 30px; 
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.vehiculos-galeria {
+    flex: 0 0 calc(33.333% - 20px); 
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: #94a3b8;
+    font-family: "poppins", sans-serif;
+}
+
+.vehiculos-galeria img {
+    width: 100%;
+    height: 220px; 
+    object-fit: cover;
+    border-radius: 16px; 
+    border: 2px solid #94a3b8;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vehiculos-galeria img:hover {
+    transform: scale(1.03); 
+    box-shadow: 0 0 20px 8px rgba(255, 213, 2, 0.4); 
+}
+
+.titulo-galeria-vehiculos {
+    color: white;
+    font-family: "apotek", sans-serif;
+    font-weight: 700;
+    text-align: center; 
+    font-size: 50px; 
+    margin-bottom: 20px; 
+    letter-spacing: 2px; 
+    background-color: #232B3D;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.titulo-galeria-video {
+    color: black;
+    font-family: "apotek", sans-serif;
+    font-weight: 700;
+    text-align: center; 
+    font-size: 50px; 
+    margin-bottom: 20px; 
+    letter-spacing: 2px; 
+}
+
+.contenedor-amarillo {
+    background-color: #ffd502;
+    padding: 20px 20px;
+    margin-top: 50px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.video-galeria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+    gap: 5px;
+}
+
+.video-galeria div {
+    flex: 0 0 calc(50% - 15px);
+    box-sizing: border-box;
+}
+
+.video-galeria video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-galeria video:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.4);
+}
+
+.banner-principal-ciudad2 {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin-bottom: 0;
+    line-height: 0; 
+}
+
+.img-ciudad2 {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    display: block; 
+}
+
+.texto-mapa h2 {
+    font-family: "apotek-extracond", sans-serif;
+    font-weight: 700;
+    font-size: 200px;
+    line-height: 1.0; 
+    padding: 20px;
+    position: absolute;
+    top: 50px;
+    left: 70px;
+    z-index: 10;
+    max-width: 1000px;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8);
+}
+
+.texto-mapa .palabra-mapa {
+    color: white;
+}
+
+.texto-mapa .palabra-gotham {
+    color: #ffd502; 
+}
+
+.contenedor-mapas {
+    background-color: #0f1115;
+    padding: 50px 20px;
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    gap: 30px; 
+}
+
+.gotham-mapa {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 20px 20px 12px 20px; 
+    box-sizing: border-box;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gotham-mapa:hover {
+    transform: translateY(-8px);
+    background-color: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.gotham-mapa h2 {
+    font-family: "apotek", sans-serif;
+    font-weight: 700;
+    margin-top: 14px;
+    margin-bottom: 12px; 
+    color: white;
+}
+
+.gotham-mapa p {
+    font-family: "poppins", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 15px;
+    line-height: 1.25;  
+    margin-top: 0;      
+    margin-bottom: 5px; 
+    color: #e0e0e0;
+}
+
+.gotham-mapa img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.seccion-historia-principal {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 180px auto 60px auto;
+    padding: 0 20px;
+}
+
+.texto-historia-principal {
+    flex: 1;
+    color: white;
+    font-family: "poppins", sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.texto-historia-principal b {
+    color: #ffd502;
+    font-size: 18px;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.video-historia-principal {
+    flex: 1;
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 16 / 9;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    align-self: center;
+}
+
+.video-historia-principal iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.seccion-historia-secundaria {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto 120px auto;
+    padding: 0 20px;
+}
+
+.bloque-video {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.video-historia-secundario {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.video-historia-secundario iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.texto-historia-secundario {
+    color: white;
+    font-family: "poppins", sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.texto-historia-secundario b {
+    color: #ffd502;
+    font-size: 16px; 
+    display: block;
+    margin-bottom: 8px;
+}
+
+.fondo-historia {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+}
+
+.fondo-historia img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.contenido-sobre-imagen {
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    width: 45%;
+    color: white;
+    font-family: "poppins", sans-serif;
+    text-align: left;
+}
+
+.contenido-sobre-imagen h2 {
+    font-size: 28px;
+    color: #ffffff;
+    margin-bottom: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.contenido-sobre-imagen p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 12px;
+    color: #e2e8f0;
+}
+
+.site-footer {
+    background-color: #0f1115;
+    color: #94a3b8;
+    font-family: "poppins", sans-serif;
+    padding-top: 50px;
+    border-top: 3px solid #ffcc00;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 40px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-container > * {
+    flex: 1 1 280px;
+}
+
+.footer-col h4 {
+    color: #ffffff;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-left: 3px solid #ffcc00;
+    padding-left: 10px;
+}
+
+.logo-container {
+    margin-bottom: 20px;
+}
+
+.footer-description {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: #94a3b8;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    line-height: 0;
+}
+
+.footer-links li {
+    margin-bottom: 5px;
+}
+
+.footer-links a {
+    color: #94a3b8;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+    display: inline-block;
+    font-family: "poppins", sans-serif;
+    padding-left: 13px;
+}
+
+.footer-links a:hover {
+    color: #ffcc00;
+}
+
+.tech-badges {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.badge {
+    background-color: #1e222b;
+    color: #ffcc00;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    border: 1px solid #333942;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.badge:hover {
+    background-color: #ffcc00;
+    color: #000000;
+    border-color: #ffcc00;
+}
+
+.tech-note {
+    font-size: 0.8rem;
+    color: #64748b;
+    margin: 0;
+}
+
+.footer-bottom {
+    background-color: #08090b;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.8rem;
+    color: #64748b;
+    border-top: 1px solid #1e222b;
+}
